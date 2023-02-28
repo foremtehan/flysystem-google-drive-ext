@@ -309,11 +309,6 @@ class GoogleDriveAdapter implements FilesystemAdapter
         return $this->fileAttributes;
     }
 
-    public function setFileAttributes(FileAttributes $fileAttributes): void
-    {
-        $this->fileAttributes = $fileAttributes;
-    }
-
     /**
      * Allow to forcefully clear the cache to enable long running process
      *
@@ -453,7 +448,7 @@ class GoogleDriveAdapter implements FilesystemAdapter
             throw UnableToWriteFile::atLocation($path, 'Not able to write the file');
         }
 
-        $this->setFileAttributes($result);
+        $this->fileAttributes = $result;
     }
 
     /**
